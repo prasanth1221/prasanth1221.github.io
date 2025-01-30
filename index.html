@@ -14,8 +14,8 @@
         <nav class="navbar">
             <a href="#home">Home</a>
             <a href="#about">about</a>
-            <a href="#Skills">services</a>
-            <a href="#Projects">portfolio</a>
+            <a href="#services">skills</a>
+            <a href="#portfolio">projects</a>
             <a href="#contact">contact</a>
         </nav>
     </header>
@@ -23,31 +23,30 @@
         <div class="home-content">
             <h3>HELLO, ITS ME</h3>
             <h1>PRASANTH KUMAR</h1>
-            <h3>i am a <span>AIML Engineer</span></h3>
+            <h3>i am a <span>Developer</span></h3>
             <p>Eager to leverage my strong programming skills and problem-solving abilities to contribute to innovative 
                 projects. Committed to continuous learning and professional growth in a dynamic environment.</p>
             <div class="social-media">
-                <a href="https://x.com/Prasant59924413"><i class="fa-solid fa-x"></i></a>
-                <a href="https://www.facebook.com/prasanthbhumula21?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/prasanthbhumula?igsh=MWJkZ3Bkd2wzM3RrcA=="><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://tr.ee/kRJ085WFxA"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/Prasant59924413" target="_blank"><i class="fa-solid fa-x"></i></a>
+                <a href="https://www.facebook.com/prasanthbhumula21?mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/prasanthbhumula?igsh=MWJkZ3Bkd2wzM3RrcA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/prasanthkumar-bhumula-71bb5125a/" target="_blankx"><i class="fa-brands fa-linkedin"  ></i></a>
             </div>
-            <a href="./Prasanthkumar(resume)1.pdf" class="btn">Download cv</a>
+            <a href="./Prasanthkumar resume1.pdf" class="btn" target="_blank">Download cv</a>
         </div>
         <div class="home-img">
-            <img src="./image.png"  alt="">
+            <img src="./images/image.png"  alt="">
         </div>
     </section>
     <section class="about" id="about">
         <div class="about-img">
-            <img id="abtimg" src="./image.png" alt="about">
+            <img id="abtimg" src="./images/image.png" alt="about">
         </div>
         <div class="about-content">
             <h2 class="heading"> About</h2>
             <h3>Student</h3>
             <p>Hello! I'm a passionate student with a deep interest in technology, specializing in Artificial Intelligence and Machine Learning. Currently pursuing my degree in Computer Science, I have hands-on experience in programming languages like C, C++, and Python. I've also worked on several projects including face emotion detection using Python and web development.</p>
             <p>Along with my technical expertise, I possess strong communication skills, teamwork, and a passion for innovation. Outside of academics, I am a state-level table tennis player and enjoy taking on new challenges in both professional and personal growth.</p>
-            <a href="#" class="btn">Readmore</a>
         </div>
     </section>
     <section class="services" id="services">
@@ -130,20 +129,44 @@
     
     
     <section class="contact" id="contact">
-       <h2 class="heading">Conatc <span>Us</span></h2>
-       <form>
-        <div class="input-box">
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Full Name">
-        </div>
-        <div class="input-box">
-            <input type="number" placeholder="mobile number">
-            <input type="text" placeholder="email subject">
-        </div>
-        <textarea name="" id="" cols="30" rows="7" placeholder="Your Messege"></textarea>
-        <input type="button" value="message" class="btn">
-       </form>
+        <h2 class="heading">Contact <span>Us</span></h2>
+        <form id="contact-form">
+            <div class="input-box">
+                <input type="text" id="full-name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="number" id="mobile" placeholder="Mobile Number" required>
+                <input type="text" id="subject" placeholder="Email Subject" required>
+            </div>
+            <textarea id="message" cols="30" rows="7" placeholder="Your Message" required></textarea>
+            <input type="button" value="Send Message" class="btn" onclick="sendEmail()">
+        </form>
     </section>
+    
+    <script>
+        function sendEmail() {
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+    
+            emailjs.send("service_9tkkfgj", "template_w6mgmef", {
+                from_name: fullName,
+                from_email: email,
+                mobile_number: mobile,
+                subject: subject,
+                message: message,
+            })
+            .then(function(response) {
+                alert('Message sent successfully!');
+            }, function(error) {
+                alert('Failed to send message: ' + JSON.stringify(error));
+            });
+        }
+    </script>
+    
     
 
 </body>
